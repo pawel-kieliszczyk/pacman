@@ -1,0 +1,10 @@
+*.o
+
+libgtest.a
+libgmock.a
+
+Pacman
+PacmanUnitTests
+
+.DS_Store
+.sconsign.dblite

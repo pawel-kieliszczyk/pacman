@@ -1,0 +1,122 @@
+env = Environment(CXX = '/opt/local/bin/clang++')
+
+
+
+# COMPILATION FLAGS
+env.Append(CXXFLAGS = ["-std=c++1y", "-stdlib=libc++", "-Wall", "-Wextra", "-Werror", "-pthread", "-isystem", "../Libraries/Cinder/Include"])
+
+
+
+# LINKER FLAGS
+env.Append(LINKFLAGS = ["-stdlib=libc++", "-framework", "Cocoa", "-framework", "Accelerate", "-framework", "AudioToolbox", "-framework", "AudioUnit", "-framework", "CoreAudio", "-framework", "CoreVideo", "-framework", "QTKit", "-framework", "OpenGL", "-framework", "AppKit", "-framework", "Cocoa", "-framework", "Foundation"])
+
+
+
+# INCLUDE PATHS
+env.Append(CPPPATH = ["../Libraries/googlemock/gmock-1.7.0/include"])
+env.Append(CPPPATH = ["../Libraries/googletest/gtest-1.7.0/include"])
+
+env.Append(CPPPATH = ["../Include"])
+
+env.Append(CPPPATH = ["../UnitTests"])
+
+
+
+# LIBRARY PATHS
+env.Append(LIBPATH = ["../Libraries/Cinder"])
+env.Append(LIBPATH = ["../Libraries/googlemock"])
+env.Append(LIBPATH = ["../Libraries/googletest"])
+
+
+
+# LINKED LIBRARIES
+env.Append(LIBS = ["cinder"])
+env.Append(LIBS = ["gmock"])
+env.Append(LIBS = ["gtest"])
+
+
+
+# SOURCE DIRECTORIES
+VariantDir('Bin/Source', '../Source', duplicate=0)
+
+
+
+# UNIT TEST DIRECTORIES
+VariantDir('Bin/UnitTests', '../UnitTests', duplicate=0)
+
+
+
+# FILES TO COMPILE
+source_files = []
+
+
+# application files
+source_files += ["Bin/Source/Model/Detail/GameControllerFsm.cpp"]
+
+source_files += ["Bin/Source/Model/Apple.cpp"]
+source_files += ["Bin/Source/Model/BigCoinField.cpp"]
+source_files += ["Bin/Source/Model/Board.cpp"]
+source_files += ["Bin/Source/Model/Cherry.cpp"]
+source_files += ["Bin/Source/Model/ClockTickNotifier.cpp"]
+source_files += ["Bin/Source/Model/CoinField.cpp"]
+source_files += ["Bin/Source/Model/CoinsCollector.cpp"]
+source_files += ["Bin/Source/Model/CollisionDetector.cpp"]
+source_files += ["Bin/Source/Model/EmptyField.cpp"]
+source_files += ["Bin/Source/Model/FieldBase.cpp"]
+source_files += ["Bin/Source/Model/FieldsData.cpp"]
+source_files += ["Bin/Source/Model/FruitField.cpp"]
+source_files += ["Bin/Source/Model/FruitsCollector.cpp"]
+source_files += ["Bin/Source/Model/FruitsVisibilityDurationController.cpp"]
+source_files += ["Bin/Source/Model/GameController.cpp"]
+source_files += ["Bin/Source/Model/GameControllerEvents.cpp"]
+source_files += ["Bin/Source/Model/GameModeManager.cpp"]
+source_files += ["Bin/Source/Model/Ghost.cpp"]
+source_files += ["Bin/Source/Model/Orange.cpp"]
+source_files += ["Bin/Source/Model/Pac.cpp"]
+source_files += ["Bin/Source/Model/PacsLifesController.cpp"]
+source_files += ["Bin/Source/Model/RandomDirectionSelector.cpp"]
+source_files += ["Bin/Source/Model/ScoreController.cpp"]
+source_files += ["Bin/Source/Model/WallField.cpp"]
+
+source_files += ["Bin/Source/PacmanApp.cpp"]
+
+
+# tests
+source_files += ["Bin/UnitTests/Tests/Model/AppleTester.cpp"]
+source_files += ["Bin/UnitTests/Tests/Model/BigCoinFieldTester.cpp"]
+source_files += ["Bin/UnitTests/Tests/Model/BoardTester.cpp"]
+source_files += ["Bin/UnitTests/Tests/Model/CherryTester.cpp"]
+source_files += ["Bin/UnitTests/Tests/Model/ClockTickNotifierTester.cpp"]
+source_files += ["Bin/UnitTests/Tests/Model/CoinFieldTester.cpp"]
+source_files += ["Bin/UnitTests/Tests/Model/CoinsCollectorTester.cpp"]
+source_files += ["Bin/UnitTests/Tests/Model/CollisionDetectorTester.cpp"]
+source_files += ["Bin/UnitTests/Tests/Model/EmptyFieldTester.cpp"]
+source_files += ["Bin/UnitTests/Tests/Model/FieldsDataTester.cpp"]
+source_files += ["Bin/UnitTests/Tests/Model/FruitFieldTester.cpp"]
+source_files += ["Bin/UnitTests/Tests/Model/FruitsCollectorTester.cpp"]
+source_files += ["Bin/UnitTests/Tests/Model/FruitsVisibilityDurationControllerTester.cpp"]
+source_files += ["Bin/UnitTests/Tests/Model/GameControllerEventsTester.cpp"]
+source_files += ["Bin/UnitTests/Tests/Model/GameControllerTester.cpp"]
+source_files += ["Bin/UnitTests/Tests/Model/GameModeManagerTester.cpp"]
+source_files += ["Bin/UnitTests/Tests/Model/GhostTester.cpp"]
+source_files += ["Bin/UnitTests/Tests/Model/OrangeTester.cpp"]
+source_files += ["Bin/UnitTests/Tests/Model/PacTester.cpp"]
+source_files += ["Bin/UnitTests/Tests/Model/PacsLifesControllerTester.cpp"]
+source_files += ["Bin/UnitTests/Tests/Model/RandomDirectionSelectorTester.cpp"]
+source_files += ["Bin/UnitTests/Tests/Model/ScoreControllerTester.cpp"]
+source_files += ["Bin/UnitTests/Tests/Model/WallFieldTester.cpp"]
+
+source_files += ["Bin/UnitTests/Tests/PacmanAppTester.cpp"]
+
+
+# test executor
+source_files += ["Bin/UnitTests/Main.cpp"]
+
+
+
+# EXECUTABLE NAME
+target = 'PacmanUnitTests'
+
+
+
+env.Program(target, source_files)

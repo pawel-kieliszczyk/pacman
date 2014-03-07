@@ -1,0 +1,25 @@
+env = Environment(CXX = '/opt/local/bin/clang++')
+
+
+env.Append(CXXFLAGS = ["-std=c++1y", "-stdlib=libc++", "-pthread"])
+
+
+env.Append(CPPPATH = ["gmock-1.7.0"])
+env.Append(CPPPATH = ["gmock-1.7.0/include"])
+env.Append(CPPPATH = ["../googletest/gtest-1.7.0"])
+env.Append(CPPPATH = ["../googletest/gtest-1.7.0/include"])
+
+
+VariantDir('Bin/gmock', 'gmock-1.7.0', duplicate=0)
+VariantDir('Bin/gtest', '../googletest/gtest-1.7.0', duplicate=0)
+
+
+source_files = []
+source_files += ["Bin/gtest/src/gtest-all.cc"]
+source_files += ["Bin/gmock/src/gmock-all.cc"]
+
+
+target = 'gmock'
+
+
+env.StaticLibrary(target, source_files)

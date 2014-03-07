@@ -1,0 +1,21 @@
+env = Environment(CXX = '/opt/local/bin/clang++')
+
+
+env.Append(CXXFLAGS = ["-std=c++1y", "-stdlib=libc++", "-pthread"])
+
+
+env.Append(CPPPATH = ["gtest-1.7.0"])
+env.Append(CPPPATH = ["gtest-1.7.0/include"])
+
+
+VariantDir('Bin/gtest/src', 'gtest-1.7.0/src', duplicate=0)
+
+
+source_files = []
+source_files += ["Bin/gtest/src/gtest-all.cc"]
+
+
+target = 'gtest'
+
+
+env.StaticLibrary(target, source_files)
