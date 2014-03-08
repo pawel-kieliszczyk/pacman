@@ -1,6 +1,6 @@
 # Pacman
 
-**Requiremants**
+**Requirements**
  + OS X
  + Clang 3.4
  + Boost
@@ -15,3 +15,6 @@ git clone https://github.com/pawel-kieliszczyk/pacman.git
 cd trunk/Build
 scons -f SConstruct-application
 ```
+
+**Screenshot**
+![ScreenShot](https://raw.github.com/pawel-kieliszczyk/pacman/screenshot.png)
