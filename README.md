@@ -17,4 +17,4 @@ scons -f SConstruct-application
 ```
 
 **Screenshot**
-![ScreenShot](https://raw.github.com/pawel-kieliszczyk/pacman/master/screenshot.png)
+![ScreenShot](https://raw.github.com/pawel-kieliszczyk/pacman/master/screenshot.jpg)
