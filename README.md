@@ -12,7 +12,7 @@ git clone https://github.com/pawel-kieliszczyk/pacman.git
 
 **Compilation**
 ```
-cd trunk/Build
+cd Build
 scons -f SConstruct-application
 ```
 
