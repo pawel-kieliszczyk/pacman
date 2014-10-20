@@ -1,4 +1,4 @@
-env = Environment(CXX = '/opt/local/bin/clang++')
+env = Environment(CXX = 'clang++')
 
 
 env.Append(CXXFLAGS = ["-std=c++1y", "-stdlib=libc++", "-pthread"])

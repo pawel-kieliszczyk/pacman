@@ -3,7 +3,7 @@ env = Environment(CXX = 'clang++')
 
 
 # COMPILATION FLAGS
-env.Append(CXXFLAGS = ["-std=c++1y", "-stdlib=libc++", "-Wall", "-Wextra", "-Werror", "-pthread", "-isystem", "../Libraries/Cinder/Include"])
+env.Append(CXXFLAGS = ["-std=c++1y", "-stdlib=libc++", "-Wall", "-Wextra", "-Werror", "-pthread", "-isystem", "/usr/local/include", "-isystem", "../Libraries/Cinder/Include"])
 
 
 
